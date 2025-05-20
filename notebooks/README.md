@@ -8,18 +8,12 @@ Learned Primal-Dual Reconstruction, IEEE TMI, (2018)).
 
 ## Requirements
 
-The preferred way to obtain dependencies is using Conda. Run:
+Create an environment with Python 3.11 and CUDA and install the requirements via `pip`:
 
-``` bash
-# Create environment 'tomosipo-demo'
-conda create -n tomosipo-demo \
-	python=3.6 cudatoolkit=10.1 pytorch astra-toolbox tqdm matplotlib pytorch-lightning \
-	-c pytorch -c defaults -c astra-toolbox/label/dev -c conda-forge
-# Activate environment
+```bash
+conda create -n tomosipo-demo python=3.11 cudatoolkit=<X.X>
 conda activate tomosipo-demo
-# Install latest tomosipo dev-branch:
-pip install git+https://github.com/ahendriksen/tomosipo.git
-
+pip install tomosipo torch==2.6 pytorch-lightning==2.5 matplotlib tqdm
 ```
 
 ## SIRT

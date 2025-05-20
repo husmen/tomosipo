@@ -1,33 +1,36 @@
 Install tomosipo
 ================
 
-A minimal installation requires:
+A minimal installation requires Python >= 3.11, CUDA 12.4 and a few packages
+that are installed automatically with ``pip``:
 
-* python >= 3.6
-* ASTRA-toolbox >= 2.0
-* CUDA
+* ``astra-toolbox==2.3.1``
+* ``numpy>=2.2``
+* ``torch==2.6``
+* ``pytorch-lightning==2.5``
 
 Installation using anaconda
 ---------------------------
 
-The requirements can be installed using the anaconda package manager. The
-following snippet creates a new conda environment named `tomosipo` (replace
-`X.X` by your CUDA version)
+Create a new environment (replace `X.X` by your CUDA version) and install
+`tomosipo` using `pip`:
 
 .. code-block:: bash
 
-   conda create -n tomosipo cudatoolkit=<X.X> tomosipo -c defaults -c astra-toolbox -c aahendriksen
+   conda create -n tomosipo python=3.11 cudatoolkit=<X.X>
+   conda activate tomosipo
+   pip install tomosipo
 
 
 Install the latest development branch
 -------------------------------------
 
 To install the latest development branch from GitHub, first create a new
-environment named `tomosipo` containing the required packages:
+environment with Python 3.11 and CUDA:
 
 .. code-block:: bash
 
-    conda create -n tomosipo python=3.8 astra-toolbox cudatoolkit=X.X -c astra-toolbox
+    conda create -n tomosipo python=3.11 cudatoolkit=X.X
 
 Then activate the environment and install tomosipo using pip:
 
@@ -39,23 +42,23 @@ Then activate the environment and install tomosipo using pip:
 Install optional dependencies
 -----------------------------
 
-To use tomosipo with PyTorch, QT, ODL, and cupy, install:
+To use tomosipo with PyTorch, QT, ODL, and CuPy, install them using ``pip``:
 
 .. code-block:: bash
 
-    conda create -n tomosipo tomosipo cudatoolkit=<X.X> pytorch cupy pyqtgraph pyqt pyopengl cupy \
-                 -c defaults -c astra-toolbox -c pytorch -c conda-forge -c aahendriksen
-    source activate tomosipo
-    # Install latest version of ODL:
+    pip install torch==2.6 pytorch-lightning==2.5 cupy pyqtgraph pyqt pyopengl
     pip install git+https://github.com/odlgroup/odl
+
 
 .. _intro_install_with_pytorch:
 
-Install with pytorch
+
+Install with PyTorch
 --------------------
 
-To just install PyTorch, use
+To just install PyTorch support run
 
 .. code-block:: bash
 
-   conda create -n tomosipo pytorch cudatoolkit=<X.X> tomosipo -c defaults -c astra-toolbox -c aahendriksen -c pytorch
+   pip install torch==2.6 pytorch-lightning==2.5
+

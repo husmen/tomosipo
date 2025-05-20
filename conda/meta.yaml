@@ -22,15 +22,17 @@ build:
 
 requirements:
     host:
-        - python >=3.6
-        - astra-toolbox >=2.0
+        - python >=3.11
+        - astra-toolbox ==2.3.1
         - setuptools
         - pytest-runner
 
     run:
-        - python >=3.6
-        - astra-toolbox >=2.0,!=2.3.0
-        - numpy >=1.21
+        - python >=3.11
+        - astra-toolbox ==2.3.1
+        - numpy >=2.2
+        - pytorch ==2.6
+        - pytorch-lightning ==2.5
 
 about:
     home: https://github.com/ahendriksen/tomosipo

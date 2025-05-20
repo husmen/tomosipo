@@ -4,12 +4,12 @@ For this demo, you need pytorch-lightning, which is a framework that
 makes it easire to use complex training techniques like distributed
 training and reduced precision.
 
-To install, use:
+To install, create an environment with Python 3.11 and CUDA and then install the
+requirements using `pip`:
 ```
-conda install python=3.6 cudatoolkit=10.1 pytorch astra-toolbox tqdm matplotlib pytorch-lightning \
-                -c pytorch -c defaults -c astra-toolbox/label/dev -c conda-forge
-pip install git+https://github.com/ahendriksen/tomosipo.git
-
+conda create -n tomosipo-demo python=3.11 cudatoolkit=<X.X>
+conda activate tomosipo-demo
+pip install tomosipo torch==2.6 pytorch-lightning==2.5 matplotlib tqdm
 ```
 
 To run, use:

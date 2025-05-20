@@ -1,3 +1,3 @@
 #!/bin/sh
 
-$PYTHON setup.py install --single-version-externally-managed --record record.txt || exit 1
+$PYTHON -m pip install . --no-deps --ignore-installed -vv || exit 1

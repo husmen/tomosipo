@@ -62,27 +62,25 @@ entry:
 <a id="org85d2a99"></a>
 # Installation
 
-A minimal installation requires:
+A minimal installation requires Python >= 3.11, CUDA 12.4 and the following packages
+which are automatically installed when installing ``tomosipo`` with ``pip``:
 
--   python >= 3.6
--   ASTRA-toolbox >= 2.0
--   CUDA
+- ``astra-toolbox==2.3.1``
+- ``numpy>=2.2``
+- ``torch==2.6``
+- ``pytorch-lightning==2.5``
 
-The requirements can be installed using the anaconda package manager. The
-following snippet creates a new conda environment named `tomosipo` (replace
-`X.X` by your CUDA version)
-```
-conda create -n tomosipo cudatoolkit=<X.X> tomosipo -c astra-toolbox -c aahendriksen -c defaults
-```
-
-An installation with Pytorch and [ts_algorithms](https://github.com/ahendriksen/ts_algorithms) can be created with the following snippet
-```
-conda create -n tomosipo tomosipo pytorch==2.0.1 pytorch-cuda=11.7 tqdm -c pytorch -c nvidia -c astra-toolbox/label/dev -c aahendriksen -c defaults
-
+Create a fresh environment (replace ``X.X`` by your CUDA version) and install via ``pip``:
+```bash
+conda create -n tomosipo python=3.11 cudatoolkit=<X.X>
 conda activate tomosipo
+pip install tomosipo
+```
+
+To install the optional [ts_algorithms](https://github.com/ahendriksen/ts_algorithms) package run:
+```bash
 pip install git+https://github.com/ahendriksen/ts_algorithms.git
 ```
-From PyTorch version 2 the cuda toolkit dependencies have changed from the _cudatoolkit_ package to the _pytorch-cuda_ package. The development version of Astra uses the _cuda-cudart_ and _libcufft_ packages which are automatically included by installing _pytorch-cuda_.
 
 More information about installation is provided in the [documentation](https://aahendriksen.gitlab.io/tomosipo/intro/install.html).
 
