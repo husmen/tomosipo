@@ -7,7 +7,20 @@ from tomosipo.types import ToHomogeneousVec, ToScalars
 
 
 class Transform(object):
-    """Documentation for Transform"""
+    """Homogeneous coordinate transform
+
+    A :class:`Transform` stores one or more ``4\u00d74`` transformation
+    matrices.  Instances can be multiplied to compose translations,
+    rotations or other linear operations. The resulting transform can be
+    applied to vectors via :py:meth:`transform_vec` or to points via
+    :py:meth:`transform_point`.
+
+    Basic usage
+    -----------
+    >>> T = ts.translate((1, 0, 0))
+    >>> T.transform_point((0, 0, 0))
+    array([1., 0., 0.])
+    """
 
     def __init__(self, matrix):
         super(Transform, self).__init__()
