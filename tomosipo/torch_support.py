@@ -112,7 +112,7 @@ def to_autograd(operator, num_extra_dims=0, is_2d=False):
     num_extra_dims : `int` (optional)
         Number of extra dimensions to prepend to the input and output of
         this operator. Set this to 2 to add channel and batch
-        dimensions when taining neural networks. The default is 0.
+        dimensions when training neural networks. The default is 0.
 
     is_2d : `bool` (optional)
         Whether to remove the first dimension of the operator, resulting in
@@ -229,7 +229,7 @@ class AutogradOperator():
         num_extra_dims : `int` (optional)
             Number of extra dimensions to prepend to the input and output of
             this operator. Set this to 2 to add channel and batch
-            dimensions when taining neural networks. The default is 0.
+            dimensions when training neural networks. The default is 0.
 
         is_2d : `bool` (optional)
             Whether to remove the first dimension of the operator, resulting in
