@@ -186,11 +186,26 @@ def test_det_sizes():
 
 
 def test_corners():
-    # TODO: This test deserves better..
-    size = (1, 1)
-    pg1 = ts.cone(angles=5, size=size, cone_angle=1 / 2).to_vec()
+    src = (0, -1, 0)
+    det = (0, 0, 0)
+    v = (1, 0, 0)
+    u = (0, 0, 1)
 
-    assert pg1.corners.shape == (5, 4, 3)
+    pg = ts.cone_vec(shape=1, src_pos=src, det_pos=det, det_v=v, det_u=u)
+
+    u_offset = np.array(u) * pg.det_shape[1] / 2
+    v_offset = np.array(v) * pg.det_shape[0] / 2
+    expected = np.array(
+        [
+            np.array(det) - u_offset - v_offset,
+            np.array(det) - u_offset + v_offset,
+            np.array(det) + u_offset - v_offset,
+            np.array(det) + u_offset + v_offset,
+        ]
+    )
+
+    assert pg.corners.shape == (1, 4, 3)
+    assert pg.corners[0] == approx(expected)
 
 
 def test_src_pos():
