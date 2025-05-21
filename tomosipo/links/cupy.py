@@ -45,14 +45,15 @@ class CupyLink(Link):
                 f"Use `ts.link(x.astype('float32'))' to inhibit this warning. "
             )
             initial_value = initial_value.astype("float32")
-            # Make contiguous:
-            if not (initial_value.flags["C_CONTIGUOUS"]):
-                warnings.warn(
-                    f"The parameter initial_value should be C_CONTIGUOUS. "
-                    f"It has been automatically made contiguous. "
-                    f"Use `ts.link(cupy.ascontiguousarray(x))' to inhibit this warning. "
-                )
-                initial_value = cupy.ascontiguousarray(initial_value)
+
+        # Make contiguous
+        if not (initial_value.flags["C_CONTIGUOUS"]):
+            warnings.warn(
+                f"The parameter initial_value should be C_CONTIGUOUS. "
+                f"It has been automatically made contiguous. "
+                f"Use `ts.link(cupy.ascontiguousarray(x))' to inhibit this warning. "
+            )
+            initial_value = cupy.ascontiguousarray(initial_value)
 
         self._data = initial_value
 
