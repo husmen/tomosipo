@@ -109,8 +109,8 @@ class DetectorVectorGeometry(ProjectionGeometry):
                 f"DetectorVectorGeometry(\n"
                 f"    shape={self.det_shape},\n"
                 f"    det_pos={self._det_pos},\n"
-                f"    det_u={self._det_v},\n"
-                f"    det_v={self._det_u}"
+                f"    det_v={self._det_v},\n"
+                f"    det_u={self._det_u},\n"
                 f")"
             )
 
